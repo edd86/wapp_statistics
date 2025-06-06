@@ -2,14 +2,14 @@ class MessageModel {
   int? id;
   DateTime date;
   String message;
-  int personaId;
+  String person;
   int chatId;
 
   MessageModel({
     this.id,
     required this.date,
     required this.message,
-    required this.personaId,
+    required this.person,
     required this.chatId,
   });
 
@@ -18,7 +18,7 @@ class MessageModel {
       id: json['id'],
       date: DateTime.parse(json['date']),
       message: json['message'],
-      personaId: json['personaId'],
+      person: json['personaId'],
       chatId: json['chatId'],
     );
   }
@@ -28,7 +28,7 @@ class MessageModel {
       'id': id,
       'date': date.toIso8601String(),
       'message': message,
-      'personaId': personaId,
+      'personaId': person,
       'chatId': chatId,
     };
   }
