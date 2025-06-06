@@ -1,0 +1,40 @@
+void main() {
+  String text =
+      "24/4/2023, 12:08 a. m. - EdD🧐: Te amo mucho amor";
+
+  String fechaHoraText = text.split('-')[0];
+  //String chat = text.split('-')[1];
+
+  if (fechaHoraText.contains('/') && fechaHoraText.contains(':')) {
+    DateTime fechaHora = construirFecha(fechaHoraText);
+    print(fechaHora);
+  }
+
+  //print(chat);
+}
+
+DateTime construirFecha(String fechaHoraText) {
+  String fechaText = fechaHoraText.split(',')[0].trim();
+  String horaText = fechaHoraText.split(',')[1].trim();
+  print(fechaText);
+  print(horaText);
+
+  List<String> fechaPartes = fechaText.split('/');
+  int mes = int.parse(fechaPartes[1]);
+  int dia = int.parse(fechaPartes[0]);
+  int anio = int.parse(fechaPartes[2]);
+
+  List<String> horaPartes = horaText.split(':');
+  int hora = int.parse(horaPartes[0]);
+  int min = int.parse(horaPartes[1].substring(0, 2));
+  String ampm = horaPartes[1].substring(horaPartes[1].length - 2);
+
+  if (ampm.contains('p') && hora != 12) {
+    hora += 12;
+  }
+  if (ampm.contains('a') && hora == 12) {
+    hora = 0;
+  }
+
+  return DateTime(anio, mes, dia, hora, min);
+}
