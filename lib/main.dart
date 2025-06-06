@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:wapp_statistics/core/constants/app_themes.dart';
-import 'package:wapp_statistics/data/database_helper.dart';
+import 'package:wapp_statistics/data/source/database_helper.dart';
 import 'package:wapp_statistics/presentation/home/home_page.dart';
-import 'package:wapp_statistics/provider/theme_provider.dart';
+import 'package:wapp_statistics/presentation/provider/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final dbHelper = DatabaseHelper.instance;
-  final db = await dbHelper.database;
+  await dbHelper.database;
   runApp(const ProviderScope(child: MainApp()));
 }
 
