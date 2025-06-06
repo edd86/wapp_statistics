@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
-import 'package:wapp_statistics/provider/theme_provider.dart';
+import 'package:wapp_statistics/presentation/provider/theme_provider.dart';
 import 'package:wapp_statistics/presentation/statistics/statistics_page.dart';
 
 class HomePage extends ConsumerWidget {
